@@ -1,7 +1,5 @@
 Feature: Login tests
-  As Customer B2B2B, I can login to Bhinneka.com
-
-  Background: Home page of bhinneka.com
+  Background: Home page of GapoWork
     Given Login form in login page
 
   @DataTableHeaders

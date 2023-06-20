@@ -1,4 +1,4 @@
-package StepDefinitions;
+package Definitions;
 
 import Enums.Context;
 import io.cucumber.java.en.Then;

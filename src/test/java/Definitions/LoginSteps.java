@@ -1,4 +1,4 @@
-package StepDefinitions;
+package Definitions;
 
 import PageObjects.LoginPage;
 import Utilities.TestContext;

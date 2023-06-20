@@ -13,8 +13,8 @@ public class HomePage {
         PageFactory.initElements(new AjaxElementLocatorFactory(webDriver, 15), this);
     }
 
-    @FindBy(xpath = "//header//img[@alt='Bhinneka.com']//parent::a")
-    private WebElement headerLogoButton;
+    @FindBy(xpath = "//a[@class='AppHeader_logo__n_Rh2 d-flex align-items-center']")
+    private WebElement headerLogo;
 
     @FindBy(xpath ="//div[contains(@placeholder,'Cari produk asli')]//div//input")
     private WebElement searchInput;
@@ -25,7 +25,7 @@ public class HomePage {
     @FindBy(xpath = "//img[contains(@src,'bhinneka-logo')]//parent::a//following-sibling::div")
     private WebElement bhinnekaCopyrightFooter;
 
-    @FindBy(xpath = "//span[contains(text(),'Login')]//parent::button")
+    @FindBy(xpath = "(//a[text()='Đăng nhập'])[1]")
     private WebElement loginButton;
 
     @FindBy(xpath = "//div[contains(@placeholder,'Cari produk asli')]//div//a")
@@ -35,16 +35,12 @@ public class HomePage {
     private WebElement invalidLocators;
 
     public boolean defaultHomePageIsDisplayed() {
-        headerLogoButton.isDisplayed();
-        searchInput.isDisplayed();
-        cartButton.isDisplayed();
-        bhinnekaCopyrightFooter.isDisplayed();
+        headerLogo.isDisplayed();
         return true;
     }
 
     public void clickLoginButton() {
         loginButton.isDisplayed();
-        loginButton.isEnabled();
         loginButton.click();
     }
 

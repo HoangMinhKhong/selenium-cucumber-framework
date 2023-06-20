@@ -1,16 +1,21 @@
-package StepDefinitions;
+package Definitions;
 
+import Managers.AllDriverManager;
+import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class HomeSteps {
 
     HomePage homePage;
     TestContext testContext;
-
+    AllDriverManager allDriverManager;
+    PageObjectManager pageObjectManager;
+    WebDriver driver;
     public HomeSteps(TestContext context) {
         testContext = context;
         homePage = testContext.getPageObjectManager().getHomePage();

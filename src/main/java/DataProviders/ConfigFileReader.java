@@ -84,4 +84,10 @@ public class ConfigFileReader {
                 throw new RuntimeException("Environment type key value in configuration file is not matched: " + environmentName);
         }
     }
+
+    public String getDriverPath(){
+        String driverPath = properties.getProperty("driverPath");
+        if(driverPath!= null) return driverPath;
+        else throw new RuntimeException("Driver Path not specified in the Configuration.properties file for the Key:driverPath");
+    }
 }
