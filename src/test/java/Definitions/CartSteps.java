@@ -19,7 +19,7 @@ public class CartSteps {
     }
 
     @When("Go to cart page without authorizations")
-    public void goToCartPageWithoutAuthorizations() {
+    public void goToCartPageWithoutAuthorizations() throws InterruptedException {
         homePage.clickCartButton();
         Assert.assertTrue(loginPage.emailLoginPageIsDisplayed());
     }

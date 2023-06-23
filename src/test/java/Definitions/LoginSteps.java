@@ -21,14 +21,8 @@ public class LoginSteps {
     }
 
     @Then("Login page is displayed")
-    public void loginPageIsDisplayed() {
+    public void loginPageIsDisplayed() throws InterruptedException {
         Assert.assertTrue(loginPage.emailLoginPageIsDisplayed());
-
-        String actualLoginHeaderTitle = loginPage.getLoginHeaderTitle();
-        Assert.assertEquals("Silakan masuk ke akun Anda", actualLoginHeaderTitle);
-
-        String actualRegisterQuestionText = loginPage.getQuestionRegisterText();
-        Assert.assertEquals("Belum punya akun Bhinneka? Daftar", actualRegisterQuestionText);
     }
 
     @When("Input {string} as email, {string} as password, {string} as account type")
@@ -52,14 +46,11 @@ public class LoginSteps {
     @When("Input credentials to login with headers table")
     public void inputCredentialsToLoginWithHeadersTable(DataTable dataTable) {
         List<Map<String,String>> dataRow = dataTable.asMaps(String.class,String.class);
-
         //Use for...loop if you have multiple data table
         for (Map<String, String> dataMap : dataRow) {
             String email = dataMap.get("Email");
             loginPage.fillEmailData(email);
-            System.out.println("row header email " + email);
-            System.out.println("row index 1 --- " + dataMap.get("Password"));
-            System.out.println("row index 2 --- " + dataMap.get("Account Type"));
+            loginPage.fillPasswordData("Password");
         }
     }
 

@@ -3,6 +3,7 @@ package Definitions;
 import Managers.AllDriverManager;
 import Managers.PageObjectManager;
 import PageObjects.HomePage;
+import Utilities.logs.Log;
 import Utilities.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,6 +29,7 @@ public class HomeSteps {
 
     @Given("Login form in login page")
     public void goToLoginPage() {
+        Log.info("Login");
         Assert.assertTrue(homePage.defaultHomePageIsDisplayed());
         homePage.clickLoginButton();
     }

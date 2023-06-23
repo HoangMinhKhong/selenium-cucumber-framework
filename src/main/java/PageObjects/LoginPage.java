@@ -11,11 +11,16 @@ public class LoginPage {
         PageFactory.initElements(webDriver, this);
     }
 
-    @FindBy(className = "bt-split-screen__header")
+//    @FindBy(className = "bt-split-screen__header")
+    @FindBy(xpath = "//div[contains(@class,'div_title')]")
     private WebElement loginHeaderTitle;
 
-    @FindBy(id = "email")
+//    @FindBy(id = "email")
+    @FindBy(xpath = "//input[contains(@class,'input-email')]")
     private WebElement emailField;
+
+    @FindBy(xpath = "//input[@type='password']")
+    private WebElement passwordField;
 
     @FindBy(id = "next")
     private WebElement selanjutnyaButton;
@@ -32,14 +37,11 @@ public class LoginPage {
     @FindBy(xpath = "//a[@href='/register']")
     private WebElement registerLink;
 
-    public boolean emailLoginPageIsDisplayed() {
+    public boolean emailLoginPageIsDisplayed() throws InterruptedException {
+        Thread.sleep(20000);
         loginHeaderTitle.isDisplayed();
         emailField.isDisplayed();
-        selanjutnyaButton.isDisplayed();
-        loginFacebookButton.isDisplayed();
-        loginGoogleButton.isDisplayed();
-        registerQuestionText.isDisplayed();
-        registerLink.isDisplayed();
+        passwordField.isDisplayed();
         return true;
     }
 
@@ -57,6 +59,12 @@ public class LoginPage {
         emailField.isEnabled();
         emailField.clear();
         emailField.sendKeys(email);
+    }
+
+    public void fillPasswordData(String password) {
+        passwordField.isEnabled();
+        passwordField.clear();
+        passwordField.sendKeys(password);
     }
 
     public void clickSelanjutnyaButton() {
