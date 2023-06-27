@@ -39,6 +39,7 @@ public class LoginPage {
 
     public boolean emailLoginPageIsDisplayed() throws InterruptedException {
         Thread.sleep(20000);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa: "+ loginHeaderTitle.getText());
         loginHeaderTitle.isDisplayed();
         emailField.isDisplayed();
         passwordField.isDisplayed();

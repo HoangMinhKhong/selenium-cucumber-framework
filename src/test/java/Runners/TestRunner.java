@@ -1,9 +1,7 @@
 package Runners;
 
-import io.cucumber.junit.Cucumber;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.junit.runner.RunWith;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -14,7 +12,8 @@ import org.testng.annotations.DataProvider;
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
-                "timeline:target/test-output-thread/"
+                "timeline:target/test-output-thread/",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
     }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
